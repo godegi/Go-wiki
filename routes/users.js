@@ -1,10 +1,10 @@
-var initializeApp = require('firebase/app');
-var fDatabase = require('firebase/database');
-var admin = require('firebase-admin');
-var fConfig = require('../Config/config.js');
+const firebaseApp = require('firebase/app');
+const firebaseDatabase = require('firebase/database');
+const firebasAdmin = require('firebase-admin');
+const firebaseConfig = require('../Config/config.js');
 
-let fApp = initializeApp.initializeApp(fConfig);
-let databaseRef = fDatabase.getDatabase();
+let fApp = firebaseApp.initializeApp(firebaseConfig);
+let fDB = firebaseDatabase.getDatabase();
 
 var express = require('express');
 var router = express.Router();
@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/test', function(req, res, next) {
-  fDatabase.set(fDatabase.ref(databaseRef, 'Godegi'), { like : "cat" }, function(e) {
+  firebaseDatabase.set(firebaseDatabase.ref(fDB, 'Godegi'), { like : "cat" }, function(e) {
     if (e) alert("error");
     else res.send("success!");
   });
