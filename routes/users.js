@@ -1,12 +1,11 @@
-const firebaseApp = require('firebase/app');
-const firebaseDatabase = require('firebase/database');
-const firebasAdmin = require('firebase-admin');
-const firebaseConfig = require('../Config/config.js');
+// Initialize Firebase Database
+import {initializeApp, getApps, getApp} from "firebase/app";
+import {getDatabase, ref, query, orderByChild, equalTo, get, push, update} from "firebase/database";
+import {fconfig} from "../Config/config.js";
+(getApps().length === 0) ? initializeApp(fconfig) : getApp();
+const db = getDatabase();
 
-let fApp = firebaseApp.initializeApp(firebaseConfig);
-let fDB = firebaseDatabase.getDatabase();
-
-var express = require('express');
+import express from "express";
 var router = express.Router();
 
 /* GET users listing. */
@@ -22,10 +21,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/test', function(req, res, next) {
-  firebaseDatabase.set(firebaseDatabase.ref(fDB, 'Godegi'), { like : "cat" }, function(e) {
-    if (e) alert("error");
-    else res.send("success!");
+  const updates = {};
+  updates["Godegi/test/test-key"] = "test-value";
+
+  update(ref(db), updates).then(() => {
+    console.log("success!!");
+    res.send("database update success!!");
+  }).catch((error) => {
+    console.log(error);
+    res.send("database update error!!");
   });
 });
 
-module.exports = router;
+export default router;

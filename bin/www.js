@@ -4,9 +4,14 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('gdwk:server');
-var http = require('http');
+// var app = require('../app');
+// var debug = require('debug')('gdwk:server');
+// var http = require('http');
+
+import app from "../app.js";
+import temp from "debug";
+const debug = temp("gdwk:server");
+import http from "http";
 
 /**
  * Get port from environment and store in Express.
