@@ -1,7 +1,7 @@
 // Initialize Firebase Database
 import {initializeApp, getApps, getApp} from "firebase/app";
 import {getDatabase, ref, query, orderByChild, equalTo, get, push, update} from "firebase/database";
-import {fconfig} from "../Config/config.js";
+import fconfig from "../Config/config.js";
 (getApps().length === 0) ? initializeApp(fconfig) : getApp();
 const db = getDatabase();
 
