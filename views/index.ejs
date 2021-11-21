@@ -12,7 +12,7 @@
       var uid = i;
       var name = peopleNameList[i]["name"];
       var description = peopleNameList[i]["description"]
-      var url = encodeURI("/users?uid=" + uid + "&name=" + name + "&description=" + description ); %>
+      var url = encodeURI("/users?uid=" + uid); %>
       <div> <a href= <%=url%> > <%= peopleNameList[i]["name"] %> </a> </div>
     <% } %>
 

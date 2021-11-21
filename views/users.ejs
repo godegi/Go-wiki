@@ -5,7 +5,12 @@
   </head>
   <body>
     <h1><%= name %></h1>
-    <h2><%= description %> </h2>
-
+    <h2><%= birth %> </h2>
+    <form action="/users/info-content" method="POST">
+      이름 : <input type="text" name="key"><br>
+      값 : <input type="text" name="value"><br>
+      <input type="hidden" name="uid" value="<%= uid %>">
+      <input type="submit">
+    </form>
   </body>
 </html>
