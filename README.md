@@ -29,7 +29,7 @@ Firebase는 NoSQL 클라우드 호스팅 데이터베이스로, 데이터는 JSO
 
 [고데기 firebase console](https://go-wiki-38165-default-rtdb.firebaseio.com) 로 이동해 '프로젝트 설정(톱니바퀴)' > 'SDK 설정 및 구성' 을 확인합니다.
 ```
-const firebaseConfig = {
+const fconfig = {
 
   /*
   * Your web app's Firebase configuration
@@ -44,7 +44,7 @@ const firebaseConfig = {
 ```
 // config.js 내용
 
-const firebaseConfig = {
+const fconfig = {
  
   /*
   * Your web app's Firebase configuration
@@ -52,6 +52,6 @@ const firebaseConfig = {
   
 };
 
-module.exports = firebaseConfig;
+export default fconfig;
 ```
 이제 firebase DB를 사용할 수 있습니다.
